@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿
+using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
@@ -57,11 +58,11 @@ namespace WpfSMSApp.View
             if (e.Key == Key.Enter)
                 BtnLogin_Click(sender, e);//로그인 버튼 클릭.
         }
-
+        
         private async void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             LblResult.Visibility = Visibility.Hidden;//결과 레이블은 숨겨둔다.
-
+            
             if (string.IsNullOrEmpty(TxtUserEmail.Text) || string.IsNullOrEmpty(TxtPassword.Password))
             {
                 LblResult.Visibility = Visibility.Visible;
@@ -81,7 +82,7 @@ namespace WpfSMSApp.View
                 var isOurUser = Logic.DataAccess.GetUsesr()
                     .Where(u => u.UserEmail.Equals(email) && u.UserPassword.Equals(password)&&
                     u.UserActivated==true).Count();
-
+               
                 if(isOurUser==0)
                 {
                     LblResult.Visibility = Visibility.Visible;
