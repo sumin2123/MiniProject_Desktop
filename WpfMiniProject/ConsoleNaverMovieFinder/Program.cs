@@ -31,7 +31,7 @@ namespace ConsoleNaverMoiveFiner
 
             foreach (var item in json_array)
             {
-                Console.WriteLine($"{item["title"]} / {item["iamage"]} / {item["subtitle"]} / {item["actor"]}");
+                Console.WriteLine($"{item["title"]} / {item["image"]} / {item["subtitle"]} / {item["actor"]}");
             }
         }
 

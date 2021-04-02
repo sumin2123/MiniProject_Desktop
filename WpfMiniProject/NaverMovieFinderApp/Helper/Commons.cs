@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Net;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace NaverMovieFinderApp
 {
@@ -50,6 +51,21 @@ namespace NaverMovieFinderApp
 
             return result;
         }
+    
+        public static string StripHtmlTag(string text)
+        {
+            return Regex.Replace(text, @"<(.|\n)*?>",""); //HTML 태그 삭제하는 정규표현
+        }
+
+        public static string StripPipe(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+                return "";
+            else
+            return text.Substring(0, text.LastIndexOf("|")).Replace("|", ",");
+        }
+        
     }
+
 
 }
